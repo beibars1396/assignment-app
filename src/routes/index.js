@@ -2,11 +2,13 @@ import { createSwitchNavigator, createAppContainer, NavigationActions } from 're
 
 import AppLoaderScreen from '@screens/AppLoader'
 import LoginScreen from '@screens/Login'
+import AppRoot from '@navigation/root/modalStack'
 
 const MainSwitch = createSwitchNavigator(
     {
         AppLoader: AppLoaderScreen,
-        Login: LoginScreen
+        Login: LoginScreen,
+        App: AppRoot
     },
     {
         initialRouteName: 'Login'
