@@ -9,7 +9,7 @@ const Container = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     border-radius: 15;
-    backgroundColor: #99CCFF;
+    backgroundColor: #CCCCFF;
 `
 
 const Text = styled.Text`
@@ -17,7 +17,7 @@ const Text = styled.Text`
 `
 
 export default ({ title, onPress }) => (
-    <Container onPress={onPress} activeOpacity={0.75} >
+    <Container onPress={onPress} activeOpacity={0.75}>
         <Text>{title}</Text>
     </Container>
 )

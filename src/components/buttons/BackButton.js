@@ -9,15 +9,17 @@ const Container = styled.TouchableOpacity`
     align-items: center;
     justify-content: center;
     border-radius: 15;
-    backgroundColor: #99CCFF;
 `
 
 const Text = styled.Text`
     font-size: 24px;
+    color: blue;
 `
 
-export default ({ title, onPress }) => (
-    <Container onPress={onPress} activeOpacity={0.75} >
-        <Text>{title}</Text>
-    </Container>
-)
+export default ({ onPress }) => {
+    return (
+        <Container onPress={onPress} activeOpacity={0.75} >
+            <Text>назад</Text>
+        </Container>
+    )
+}
