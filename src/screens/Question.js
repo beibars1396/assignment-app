@@ -6,33 +6,31 @@ import BackButton from '@components/buttons/BackButton'
 
 const QuestionScreen = ({ navigation, item }) => {
 
-    const initialValue = [
-        {answer: "ответ", number: 0}
-    ]
+    let EmptyQuestionValue = {
+        question: "Вопрос недоступен",
+        answers: []
+    }
 
     const url = navigation.getParam('url')
+    
+    const [questionValue, setQuestion] = useState(EmptyQuestionValue)
 
-    const [question, setQuestion] = useState([])
-
-    const [answers, setAnswers] = useState(initialValue)
-
-    useEffect(async () => {
-        await fetch(url).then(response => response.json()).then(data => setAnswers(data.answers))
-        await fetch(url).then(response => response.json()).then(data => setQuestion(data.question))
+    useEffect(() => {
+        if(url) fetch(url).then(response => response.json()).then(data => setQuestion(data)) 
     }, [])
     
     return (
         <Layout style={{ justifyContent: 'center', alignItems: 'center' }}>
-          <Text> {question} </Text>
-          {answers.map((answer, index) => (
-            <Text>{answers[index].number} {answers[index].answer}</Text>
-          ))}
+            <Text> {questionValue.question} </Text>
+            {questionValue.answers.map((answer, index) => (
+                <Text key={index} >{answer.number} {answer.answer}</Text>
+            ))}
         </Layout>
     )
 }
 
 QuestionScreen.navigationOptions = ({navigation}) => ({
-    // headerLeft: <BackButton onPress={navigation.goBack()}/>
+    headerLeft: <BackButton onPress={() => navigation.goBack()}/>
 })
 
 export default QuestionScreen

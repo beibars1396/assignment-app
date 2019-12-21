@@ -3,17 +3,8 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import { createStackNavigator } from 'react-navigation-stack'
 
 import QuestionsScreen from '@screens/Questions'
-// import TabBarButton from '@components/buttons/TabBarButton'
-import ExitTabButton from '@components/buttons/ExitTabButton'
 import AppLoader from '@screens/AppLoader'
 import QuestionScreen from '@screens/Question'
-
-const ExitTab = ({ navigation }) => { 
-    const onBack = () => navigation.navigate('Login')
-    return (
-        <ExitTabButton onPress={onBack} />
-    )
-}
 
 const QuestionsTabStack = createStackNavigator(
     {
@@ -34,10 +25,9 @@ export default createBottomTabNavigator(
         },
         ExitTab: {
             screen: AppLoader,
-            navigationOptions: () => ({
-                tabBarIcon: <ExitTab />,
+            navigationOptions: {
                 title: 'Выход'
-            })
+            }
         }
     },
     {

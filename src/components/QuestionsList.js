@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { FlatList} from 'react-native'
+import { FlatList } from 'react-native'
 import styled from 'styled-components/native'
 
 import QuestionListView from './QuestionListView'
@@ -19,29 +19,26 @@ export default ({ navigation }) => {
 
     const [questions, setQuestions] = useState([])
 
-    // const sortQuestions = ( data ) => {
-    //     for (i=0; i < data.length; i++){
-    //         if(data[i].url == ""){
-    //             data.push(data.shift())
-    //         }
-    //     }
-    //     data.push(data.shift())
-    // }
-
     const toQuestion = () => {
         navigation.navigate('Question')
-        console.log('to question')
     }
 
     useEffect(() => {
-        fetch(url).then(response => response.json()).then(data => setQuestions(data))
+        async function fetchData() {
+            let response = await fetch(url)
+            let json = await response.json()
+            setQuestions(json.sort( (a) => (a.url) ? -1 : 1 ))
+        }
+        fetchData()
     }, [])
 
     return (
         <FlatList
+            keyExtractor={(item, index) => index.toString()}
             data={ questions }
             renderItem={({ item }) => <QuestionListView item={item} onPress={toQuestion} navigation={navigation} />}
-            ItemSeparatorComponent={Separator}
+            ItemSeparatorComponent={ Separator }
+            ListFooterComponent={ Separator }
         />
     )
 }
