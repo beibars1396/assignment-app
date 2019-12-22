@@ -1,8 +1,15 @@
 import React, { useEffect, useState } from 'react'
-import { Text } from 'react-native'
+import { View } from 'react-native'
+import styled from 'styled-components'
 
 import { Layout } from '@components/Layout'
+import NumberCard from '@components/NumberCard'
 import BackButton from '@components/buttons/BackButton'
+
+const Text = styled.Text`
+    font-size: 30px;
+    text-align: center;
+`
 
 const QuestionScreen = ({ navigation, item }) => {
 
@@ -23,8 +30,15 @@ const QuestionScreen = ({ navigation, item }) => {
         <Layout style={{ justifyContent: 'center', alignItems: 'center' }}>
             <Text> {questionValue.question} </Text>
             {questionValue.answers.map((answer, index) => (
-                <Text key={index} >{answer.number} {answer.answer}</Text>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text key={index} >{answer.answer}</Text>
+                    <NumberCard key={index} number={answer.number} size={50} />
+                </View>
             ))}
+            <View style={{
+                flexDirection: 'row'
+            }}>
+            </View>
         </Layout>
     )
 }
