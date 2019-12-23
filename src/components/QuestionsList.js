@@ -25,8 +25,8 @@ export default ({ navigation }) => {
 
     useEffect(() => {
         async function fetchData() {
-            let response = await fetch(url)
-            let json = await response.json()
+            const response = await fetch(url)
+            const json = await response.json()
             setQuestions(json.sort( (a) => (a.url) ? -1 : 1 ))
         }
         fetchData()

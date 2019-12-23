@@ -1,0 +1,24 @@
+{
+  "name": "react-native-vkontakte-login",
+  "version": "1.0.0",
+  "summary": "React Native wrapper for VK SDK Login",
+  "authors": "Konstantin Kuznetsov",
+  "homepage": "https://github.com/doomsower/react-native-vkontakte-login#readme",
+  "license": "MIT",
+  "source": {
+    "git": "https://github.com/doomsower/react-native-vkontakte-login.git",
+    "tag": "v1.0.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "ios/**/*.{h,m}",
+  "dependencies": {
+    "React": [
+
+    ],
+    "VK-ios-sdk": [
+
+    ]
+  }
+}
