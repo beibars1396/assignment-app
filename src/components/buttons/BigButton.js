@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Container = styled.TouchableOpacity`
-    margin: 0;
+    margin: 10px;
     height: 50px;
     width: 130px;
     flex-direction: row;
