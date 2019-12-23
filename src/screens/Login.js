@@ -36,7 +36,7 @@ export default ({ navigation }) => {
     return (
         <Layout style={{ justifyContent: 'center', alignItems: 'center'}}>
             <BigButton title={'Логин ВК'} onPress={onLogin} />
-            <BigButton title={'Войти'} onPress={toApp} />
+            {/* <BigButton title={'Войти'} onPress={toApp} /> */}
         </Layout>
     )
 }

@@ -30,9 +30,9 @@ const QuestionScreen = ({ navigation, item }) => {
         <Layout style={{ justifyContent: 'center', alignItems: 'center' }}>
             <Text> {questionValue.question} </Text>
             {questionValue.answers.map((answer, index) => (
-                <View style={{flexDirection: 'row', alignItems: 'center'}}>
-                    <Text key={index} >{answer.answer}</Text>
-                    <FlipCard key={index} number={answer.number} />
+                <View key={index} style={{flexDirection: 'row', alignItems: 'center'}}>
+                    <Text >{answer.answer}</Text>
+                    <FlipCard number={answer.number} />
                 </View>
             ))}
         </Layout>
